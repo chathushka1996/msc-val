@@ -14,20 +14,21 @@ if __name__ == '__main__':
     seq_len = 336
     pred_len = 96
     model_id = f"{model}_{seq_len}_{pred_len}"
+    target = "Solar Power Output"
 
     # random seed
     parser.add_argument('--random_seed', type=int, default=2021, help='random seed')
-    parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
+    parser.add_argument('--is_training', type=int, required=False, default=1, help='status')
     parser.add_argument('--root_path', type=str, default=root_path, help='root path of the data file')
     parser.add_argument('--data_path', type=str, default='ETTh1.csv', help='data file')
-    parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
-    parser.add_argument('--model', type=str, required=True, default=model, help='model name, options: [Autoformer, Informer, Transformer]')
-    parser.add_argument('--data', type=str, required=True, default='custom', help='dataset type')
+    parser.add_argument('--model_id', type=str, required=False, default='test', help='model id')
+    parser.add_argument('--model', type=str, required=False, default=model, help='model name, options: [Autoformer, Informer, Transformer]')
+    parser.add_argument('--data', type=str, required=False, default='custom', help='dataset type')
     parser.add_argument('--features', type=str, default='M', help='forecasting task, MS:multivariate predict univariate')
     parser.add_argument('--seq_len', type=int, default=seq_len, help='input sequence length')
     parser.add_argument('--pred_len', type=int, default=pred_len, help='prediction sequence length')
     
-    parser.add_argument('--target', type=str, default='OT', help='target feature in S or MS task')
+    parser.add_argument('--target', type=str, default=target, help='target feature in S or MS task')
     parser.add_argument('--freq', type=str, default='h',
                         help='freq for time features encoding, options:[s:secondly, t:minutely, h:hourly, d:daily, b:business days, w:weekly, m:monthly], you can also use more detailed freq like 15min or 3h')
     parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='location of model checkpoints')
@@ -39,8 +40,8 @@ if __name__ == '__main__':
 
 
     # DLinear
-    parser.add_argument('--individual', action='store_true', default=False, help='DLinear: a linear layer for each variate(channel) individually')
-    parser.add_argument('--enc_in', type=int, default=7, help='encoder input size') # DLinear with --individual, use this hyperparameter as the number of channels
+    # parser.add_argument('--individual', action='store_true', default=False, help='DLinear: a linear layer for each variate(channel) individually')
+    # parser.add_argument('--enc_in', type=int, default=7, help='encoder input size') # DLinear with --individual, use this hyperparameter as the number of channels
 
     # PatchTST
     parser.add_argument('--fc_dropout', type=float, default=0.05, help='fully connected dropout')
