@@ -21,7 +21,7 @@ do
     --is_training 1 \
     --root_path $root_path_name \
     --data_path $data_path_name \
-    --model_id $model_name_$seq_len'_'$pred_len \
+    --model_id $model_name'_'$seq_len'_'$pred_len \
     --model $model_name \
     --data custom \
     --features M \
@@ -29,5 +29,5 @@ do
     --pred_len $pred_len \
     --enc_in 21 \
     --des 'Exp' \
-    --itr 1 --batch_size 16  >drive/MyDrive/msc/logs/LongForecasting/$model_name_$model_id_name'_'$seq_len'_'$pred_len.log
+    --itr 1 --batch_size 16  >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log
 done
