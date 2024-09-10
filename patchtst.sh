@@ -15,7 +15,9 @@ data_name=custom
 pred_len=96
 random_seed=2021
 
-python -u run_longExp.py \
+for pred_len in 96 192 336 720
+do
+    python -u run_longExp.py \
       --random_seed $random_seed \
       --is_training 1 \
       --root_path $root_path_name \
@@ -40,3 +42,4 @@ python -u run_longExp.py \
       --train_epochs 20\
       --patience 20\
       --itr 1 --batch_size 128 --learning_rate 0.0001 >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log
+done
