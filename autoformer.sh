@@ -36,5 +36,5 @@ do
     --c_out 8 \
     --des 'Exp' \
     --itr 1 \
-    --train_epochs 1 >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$pred_len.log
+    --train_epochs 20 >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$pred_len.log
 done
