@@ -5,7 +5,7 @@ fi
 if [ ! -d "./drive/MyDrive/msc/logs/LongForecasting" ]; then
     mkdir ./drive/MyDrive/msc/logs/LongForecasting
 fi
-seq_len=336
+seq_len=96
 model_name=Autoformer
 dataset=sl
 root_path_name=./data/$dataset
