@@ -1,14 +1,14 @@
-if [ ! -d "./logs" ]; then
-    mkdir ./logs
+if [ ! -d "./drive/MyDrive/msc/logs" ]; then
+    mkdir ./drive/MyDrive/msc/logs
 fi
 
-if [ ! -d "./logs/LongForecasting" ]; then
-    mkdir ./logs/LongForecasting
+if [ ! -d "./drive/MyDrive/msc/logs/LongForecasting" ]; then
+    mkdir ./drive/MyDrive/msc/logs/LongForecasting
 fi
 seq_len=336
 model_name=PatchTST
 
-root_path_name=./data/sl
+root_path_name=./data/us
 data_path_name=solar.csv
 model_id_name=solar_sl
 data_name=custom
@@ -39,4 +39,4 @@ python -u run_longExp.py \
       --des 'Exp' \
       --train_epochs 20\
       --patience 20\
-      --itr 1 --batch_size 128 --learning_rate 0.0001 >logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log
+      --itr 1 --batch_size 128 --learning_rate 0.0001 >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log
