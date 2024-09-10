@@ -6,13 +6,14 @@ if [ ! -d "./drive/MyDrive/msc/logs/LongForecasting" ]; then
     mkdir ./drive/MyDrive/msc/logs/LongForecasting
 fi
 seq_len=336
-model_name=Autoformer
 dataset=sl
 root_path_name=./data/$dataset
 data_path_name=solar.csv
 model_id_name=solar_$dataset
 data_name=custom
 random_seed=2021
+
+model_name=Transformer
 
 for pred_len in 96 192 336 720
 do
