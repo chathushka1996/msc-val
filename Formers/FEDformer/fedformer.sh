@@ -1,10 +1,11 @@
 # cd FEDformer
-if [ ! -d "../logs" ]; then
-    mkdir ../logs
+# add --individual for DLinear-I
+if [ ! -d "./drive/MyDrive/msc/logs" ]; then
+    mkdir ./drive/MyDrive/msc/logs
 fi
 
-if [ ! -d "../logs/LongForecasting" ]; then
-    mkdir ../logs/LongForecasting
+if [ ! -d "./drive/MyDrive/msc/logs/LongForecasting" ]; then
+    mkdir ./drive/MyDrive/msc/logs/LongForecasting
 fi
 
 seq_len=96
@@ -18,13 +19,12 @@ model_name=FEDformer
 
 for preLen in 96 192 336 720
 do
-# ETTm1
 python -u run.py \
   --is_training 1 \
   --root_path $root_path_name \
   --data_path $data_path_name \
-  --task_id ETTm1 \
-  --model $model_name=FEDformer \
+  --task_id $model_id_name \
+  --model $model_name \
   --data $data_name \
   --features M \
   --seq_len $seq_len \
@@ -33,9 +33,10 @@ python -u run.py \
   --e_layers 2 \
   --d_layers 1 \
   --factor 3 \
-  --enc_in 7 \
-  --dec_in 7 \
-  --c_out 7 \
+  --enc_in 8 \
+  --dec_in 8 \
+  --c_out 8 \
   --des 'Exp' \
   --d_model 512 \
-  --itr 1  >../logs/LongForecasting/FEDformer_ETTm1_$pred_len.log
+  --itr 1  >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$preLen.log
+done
