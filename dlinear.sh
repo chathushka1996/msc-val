@@ -34,5 +34,5 @@ do
     --train_epochs 20\
     --patience 5\
     --checkpoints $checkpoints\
-    --itr 1 --batch_size 16  >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$seq_len'_'$pred_len.log
+    --itr 1 --batch_size 16  >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log
 done
