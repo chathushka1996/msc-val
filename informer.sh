@@ -7,7 +7,7 @@ if [ ! -d "./drive/MyDrive/msc/logs/LongForecasting" ]; then
 fi
 
 seq_len=96
-dataset=sl
+dataset=sl_cross
 root_path_name=./data/$dataset
 data_path_name=solar.csv
 model_id_name=solar_$dataset
@@ -38,5 +38,8 @@ do
     --c_out 8 \
     --des 'Exp' \
     --itr 1 \
+    --train_epochs 20\
+    --patience 5\
+    --checkpoints $checkpoints\
     --train_epochs 20 >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$pred_len.log
 done

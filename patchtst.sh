@@ -8,12 +8,14 @@ fi
 seq_len=336
 model_name=PatchTST
 
-root_path_name=./data/us
+dataset=sl_cross
+root_path_name=./data/$dataset
 data_path_name=solar.csv
-model_id_name=solar_sl
+model_id_name=solar_$dataset
 data_name=custom
 pred_len=96
 random_seed=2021
+checkpoints=./drive/MyDrive/msc/models/
 
 for pred_len in 96 192 336 720
 do
@@ -40,6 +42,7 @@ do
       --stride 8\
       --des 'Exp' \
       --train_epochs 20\
-      --patience 20\
+      --patience 5\
+      --checkpoints $checkpoints\
       --itr 1 --batch_size 128 --learning_rate 0.0001 >drive/MyDrive/msc/logs/LongForecasting/$model_name'_'$model_id_name'_'$seq_len'_'$pred_len.log
 done
